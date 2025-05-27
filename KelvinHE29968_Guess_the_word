@@ -1,0 +1,71 @@
+using System;
+using System.Linq;
+
+class GuessTheWordGame
+{
+    static void Main()
+    {
+        string[] wordList = { "apple", "banana", "cherry", "grape", "orange" }; // List of words
+        Random random = new Random();
+        string chosenWord = wordList[random.Next(wordList.Length)]; // Pick a random word
+        char[] guessedWord = new string('_', chosenWord.Length).ToCharArray(); // Masked word
+        int attemptsLeft = 6; // Number of chances
+        bool wordGuessed = false;
+        char[] guessedLetters = new char[26]; // Track guessed letters
+        int guessedIndex = 0;
+
+        Console.WriteLine("🎯 Welcome to Guess the Word!");
+        Console.WriteLine($"The word has {chosenWord.Length} letters: {new string(guessedWord)}");
+
+        while (attemptsLeft > 0 && !wordGuessed)
+        {
+            Console.Write("\nEnter a letter: ");
+            char guess = char.ToLower(Console.ReadKey().KeyChar);
+            Console.WriteLine();
+
+            // Check if the letter was already guessed
+            if (guessedLetters.Contains(guess))
+            {
+                Console.WriteLine("⚠️ You already guessed that letter! Try another.");
+                continue;
+            }
+
+            guessedLetters[guessedIndex++] = guess; // Store guessed letter
+
+            if (chosenWord.Contains(guess))
+            {
+                for (int i = 0; i < chosenWord.Length; i++)
+                {
+                    if (chosenWord[i] == guess)
+                    {
+                        guessedWord[i] = guess; // Reveal correct letters
+                    }
+                }
+                Console.WriteLine("✅ Correct!");
+            }
+            else
+            {
+                attemptsLeft--;
+                Console.WriteLine($"❌ Wrong! Attempts left: {attemptsLeft}");
+            }
+
+            Console.WriteLine($"Word: {new string(guessedWord)}");
+
+            // Check if the player has guessed all letters
+            if (!guessedWord.Contains('_'))
+            {
+                wordGuessed = true;
+            }
+        }
+
+        // End of game message
+        if (wordGuessed)
+        {
+            Console.WriteLine("\n🎉 Congratulations! You guessed the word: " + chosenWord);
+        }
+        else
+        {
+            Console.WriteLine("\n💀 Game over! The correct word was: " + chosenWord);
+        }
+    }
+}
