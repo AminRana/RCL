@@ -1,0 +1,184 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string secretWord = "regret"; // You can change this to any word
+        HashSet<char> correctGuesses = new HashSet<char>();
+        HashSet<char> allGuesses = new HashSet<char>();
+        int lives = 8;
+        string input = "";
+
+        Console.WriteLine("Let's play a game...");
+        Console.WriteLine("A cruel game that is called HANGMAN da da da!!");
+        Console.WriteLine("The rules are: Guess the word by asking for one letter that you think is in the word I created.");
+        Console.WriteLine("If you guess wrong, you will lose one life.");
+        Console.WriteLine("You have only 8 guesses.");
+        Console.WriteLine("Press ENTER to start.");
+        Console.ReadLine();
+        Console.WriteLine("Type EXIT to leave at any time.");
+
+        while (lives > 0)
+        {
+            DisplayWord(secretWord, correctGuesses);
+
+            Console.WriteLine($"Lives remaining: {lives}");
+            Console.WriteLine("Type a letter: ");
+            input = Console.ReadLine().Trim().ToLower();
+
+            if (input == "exit")
+            {
+                Console.WriteLine("Thanks for playing and bye!");
+                break;
+            }
+
+            if (input.Length != 1 || !char.IsLetter(input[0]))
+            {
+                Console.WriteLine("Please enter a single valid letter.");
+                continue;
+            }
+
+            char guess = input[0];
+
+            if (allGuesses.Contains(guess))
+            {
+                Console.WriteLine("You already guessed that letter!");
+                continue;
+            }
+
+            allGuesses.Add(guess);
+
+            if (secretWord.Contains(guess))
+            {
+                Console.WriteLine("Good guess!");
+                correctGuesses.Add(guess);
+            }
+            else
+            {
+                Console.WriteLine("Nope, that letter's not in the word.");
+                lives--;
+                DrawHangman(lives);
+            }
+
+            if (IsWordGuessed(secretWord, correctGuesses))
+            {
+                Console.WriteLine($"Congratulations! You guessed the word: {secretWord}");
+                break;
+            }
+        }
+
+        if (lives == 0)
+        {
+            Console.WriteLine($"Game over! The word was: {secretWord}");
+            DrawHangman(lives);
+        }
+    }
+
+    static void DisplayWord(string word, HashSet<char> guessedLetters)
+    {
+        foreach (char c in word)
+        {
+            if (guessedLetters.Contains(c))
+                Console.Write(c + " ");
+            else
+                Console.Write("_ ");
+        }
+        Console.WriteLine();
+    }
+
+    static bool IsWordGuessed(string word, HashSet<char> guessedLetters)
+    {
+        foreach (char c in word)
+        {
+            if (!guessedLetters.Contains(c))
+                return false;
+        }
+        return true;
+    }
+
+    static void DrawHangman(int lives)
+    {
+        if (lives == 7)
+        {
+            Console.WriteLine(" -----");
+            Console.WriteLine(" |    |");
+            Console.WriteLine(" |    |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+        }
+        if (lives == 6)
+        {
+            Console.WriteLine(" -----");
+            Console.WriteLine(" |    |");
+            Console.WriteLine(" |    |");
+            Console.WriteLine(" O    |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+        }
+        if (lives == 5)
+        {
+            Console.WriteLine(" -----");
+            Console.WriteLine(" |    |");
+            Console.WriteLine(" |    |");
+            Console.WriteLine("/O    |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+        }
+        if (lives == 4)
+        {
+            Console.WriteLine(" -----");
+            Console.WriteLine(" |    |");
+            Console.WriteLine(" |    |");
+            Console.WriteLine("/O/   |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+        }
+        if (lives == 3)
+        {
+            Console.WriteLine(" -----");
+            Console.WriteLine(" |    |");
+            Console.WriteLine(" |    |");
+            Console.WriteLine("/O/   |");
+            Console.WriteLine(" !    |");
+            Console.WriteLine("      |");
+            Console.WriteLine("      |");
+        }
+        if (lives == 2)
+        {
+            Console.WriteLine(" -----");
+            Console.WriteLine(" |    |");
+            Console.WriteLine(" |    |");
+            Console.WriteLine("/O/   |");
+            Console.WriteLine(" !    |");
+            Console.WriteLine("/     |");
+            Console.WriteLine("      |");
+        }
+        if (lives == 1)
+        {
+            Console.WriteLine(" -----");
+            Console.WriteLine(" |    |");
+            Console.WriteLine(" |    |");
+            Console.WriteLine("/O/   |");
+            Console.WriteLine(" !    |");
+            Console.WriteLine("//    |");
+            Console.WriteLine("      |");
+        }
+        if (lives == 0)
+        {
+            Console.WriteLine(" -----");
+            Console.WriteLine(" |    |");
+            Console.WriteLine(" |    |");
+            Console.WriteLine("/O/   |");
+            Console.WriteLine(" !    |");
+            Console.WriteLine("/'/   |");
+            Console.WriteLine("      |");
+        }
+    }
+}
