@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\5203\bin\Debug\net8.0\5203.exe
+C:\Users\User\source\repos\5203\bin\Debug\net8.0\5203.deps.json
+C:\Users\User\source\repos\5203\bin\Debug\net8.0\5203.runtimeconfig.json
+C:\Users\User\source\repos\5203\bin\Debug\net8.0\5203.dll
+C:\Users\User\source\repos\5203\bin\Debug\net8.0\5203.pdb
+C:\Users\User\source\repos\5203\obj\Debug\net8.0\5203.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\5203\obj\Debug\net8.0\5203.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\5203\obj\Debug\net8.0\5203.AssemblyInfo.cs
+C:\Users\User\source\repos\5203\obj\Debug\net8.0\5203.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\5203\obj\Debug\net8.0\5203.dll
+C:\Users\User\source\repos\5203\obj\Debug\net8.0\refint\5203.dll
+C:\Users\User\source\repos\5203\obj\Debug\net8.0\5203.pdb
+C:\Users\User\source\repos\5203\obj\Debug\net8.0\5203.genruntimeconfig.cache
+C:\Users\User\source\repos\5203\obj\Debug\net8.0\ref\5203.dll
