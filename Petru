@@ -1,0 +1,173 @@
+package week3;
+
+public class cars {
+	    String make;
+	    String model;
+	    int year;
+
+	    // Constructor
+	    public cars(String make, String model, int year) {
+	        this.make = make;
+	        this.model = model;
+	        this.year = year;
+	    }
+
+	    // Method to display car information
+	    public void displayInfo() {
+	        System.out.println("Make: " + make);
+	        System.out.println("Model: " + model);
+	        System.out.println("Year: " + year);
+	    }
+
+	    // Example usage
+	    public static void main(String[] args) {
+	        cars car = new cars("Toyota", "Camry", 2022);
+	        car.displayInfo();
+	    }
+
+}
+package week3;
+
+import java.util.Scanner;
+
+class Inventory {
+
+    int productId;
+    String productName;
+    double price;
+    int quantity;
+
+    Scanner sc = new Scanner(System.in);
+
+    // Method to get product details
+    void ProductDetails() {
+        System.out.print("Enter Product ID: ");
+        productId = sc.nextInt();
+
+        System.out.print("Enter Product Name: ");
+        productName = sc.next();
+
+        System.out.print("Enter Price: ");
+        price = sc.nextDouble();
+
+        System.out.print("Enter Quantity: ");
+        quantity = sc.nextInt();
+    }
+
+    // Method to calculate and display invoice
+    void Invoice() {
+        double totalAmount = price * quantity;
+        System.out.println("Total Invoice Amount: " + totalAmount);
+    }
+
+    // Method to display stock details
+    void StockDetails() {
+        System.out.println("Stock Available: " + quantity);
+    }
+
+    // Method to display product details
+    void displayProd() {
+        System.out.println("\n--- Product Details ---");
+        System.out.println("Product ID: " + productId);
+        System.out.println("Product Name: " + productName);
+        System.out.println("Price: " + price);
+        System.out.println("Quantity: " + quantity);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Inventory obj = new Inventory();
+
+        obj.ProductDetails();
+        obj.displayProd();
+        obj.Invoice();
+        obj.StockDetails();
+    }
+}
+package week3;
+
+import java.util.Scanner;
+
+class Inventory {
+
+    int productId;
+    String productName;
+    double price;
+    int quantity;
+
+    Scanner sc = new Scanner(System.in);
+
+    // Method to get product details
+    void ProductDetails() {
+        System.out.print("Enter Product ID: ");
+        productId = sc.nextInt();
+
+        System.out.print("Enter Product Name: ");
+        productName = sc.next();
+
+        System.out.print("Enter Price: ");
+        price = sc.nextDouble();
+
+        System.out.print("Enter Quantity: ");
+        quantity = sc.nextInt();
+    }
+
+    // Method to calculate and display invoice
+    void Invoice() {
+        double totalAmount = price * quantity;
+        System.out.println("Total Invoice Amount: " + totalAmount);
+    }
+
+    // Method to display stock details
+    void StockDetails() {
+        System.out.println("Stock Available: " + quantity);
+    }
+
+    // Method to display product details
+    void displayProd() {
+        System.out.println("\n--- Product Details ---");
+        System.out.println("Product ID: " + productId);
+        System.out.println("Product Name: " + productName);
+        System.out.println("Price: " + price);
+        System.out.println("Quantity: " + quantity);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Inventory obj = new Inventory();
+
+        obj.ProductDetails();
+        obj.displayProd();
+        obj.Invoice();
+        obj.StockDetails();
+    }
+}
+package week3;
+
+	
+public class Calculator {
+	class Calculator {
+	
+
+	 
+	    int add(int a, int b) {
+	        return a + b;
+	    }
+
+	    
+	    int add(int a, int b, int c) {
+	        return a + b + c;
+	    }
+
+	    double add(double a, double b) {
+	        return a + b;
+	    }
+
+	    public static void main(String[] args) {
+	        Calculator calc = new Calculator();
+
+	        System.out.println("Sum of 2 integers: " + calc.add(10, 20));
+	        System.out.println("Sum of 3 integers: " + calc.add(10, 20, 30));
+	        System.out.println("Sum of 2 doubles: " + calc.add(5.5, 4.5));
+	    }
+	}
