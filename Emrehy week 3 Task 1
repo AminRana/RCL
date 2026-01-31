@@ -1,0 +1,7 @@
+package animals;
+
+public class Animal {
+  public void displayDetails() {
+	  System.out.println("The animal makes a sound");
+  }
+}
