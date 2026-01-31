@@ -1,0 +1,252 @@
+package Week3;
+
+public class Main {
+	
+	public static void main(String[]args) {
+		//program starts here 
+		//main is the starting point of every Java program.
+		//Java looks for this method when the program runs.
+		/*
+		Car myCar = new Car(); //--- Create a car object---
+		
+		myCar.make = "Volkswagen"; //---set the make
+		myCar.model ="CC Bluemotion"; //---set the model---
+		myCar.year= 2015;  //---set the year
+		
+		myCar.displayInfo(); //--- Display car details
+	
+
+	
+/* Project - is holding all the code
+ * Class - blueprint (plan or template used to build something)
+ * Object - real thing made from a class
+ * Fields - describe the object
+ * Methods - actions the object can do 
+ * main() - where the program starts
+ */
+
+//=====Task 2 =====
+
+/*
+ Inventory item = new Inventory();  //---this creates the object
+item.ProductDetails("Mouse", 50, 150.00);
+item.StockDetails(3);
+item.displayProd();
+item.Invoice();
+
+*/
+		//TASK 3 ======
+		
+	/*	Calculator calc = new Calculator();
+		
+		System.out.println(calc.add(2, 9));          // two integers
+        System.out.println(calc.add(3, 5, 7));        // three integers
+        System.out.println(calc.add(5.5, 4.5));       // two doubles
+	*/
+		
+		//======TASK 4
+		
+	
+		// ===== Person Object =====
+        Person p = new Person();
+        p.name = "Dumitru";
+        p.age = 35;
+        p.displayDetails();
+
+        System.out.println();
+
+        // ===== Student Object =====
+        Student s = new Student();
+        s.name = "Dumitru";
+        s.age = 35;
+        s.studentId = 27012;
+        s.displayDetails();	
+		
+		
+		Animal a = new Animal();
+        a.makeSound();
+
+        Dog d = new Dog();
+        d.makeSound();
+
+        Cat c = new Cat();
+        c.makeSound();
+	
+		
+	/*	
+		// Declare two integer numbers
+        int numerator = 12;
+        int denominator = 2;
+
+        // try block: code that may cause an error
+        try {
+            int result = numerator / denominator;
+            System.out.println("Result: " + result);
+        }
+
+        // catch block: handles division by zero error
+        catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero");
+        }
+
+        // Code continues normally after try-catch
+        System.out.println("Program continues running");
+		*/
+	}
+}
+
+
+
+
+  package Week3;
+
+public class Animal {
+
+    // Method to make a sound
+    void makeSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+
+
+
+package Week3;
+
+class Calculator {
+
+    // method with TWO integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // method with THREE integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // method with TWO doubles
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+
+package Week3;
+
+public class Car {
+
+	String make;  //will be the brand of the car
+	String model;  //will be the model of the car
+	int year;		//year the car was made
+
+
+//---These are variables that describe a car---
+//---Every car object will have its own values---
+	void displayInfo() {
+		System.out.println("Make: " + make);
+		System.out.println("Model: " + model);
+		System.out.println("Year " + year);
+		
+		//---this method prints the car details
+		//--- a method is a block of code that does something
+	}
+}
+
+
+
+package Week3;
+
+ public class Cat extends Animal {
+
+    // Override makeSound()
+    void makeSound() {
+        System.out.println("The cat meows");
+    }
+}
+
+
+package Week3;
+
+public class Dog extends Animal {
+
+    // Override makeSound()
+    void makeSound() {
+        System.out.println("The dog barks");
+    }
+}
+
+
+package Week3;
+
+public class Inventory {
+
+	
+	//variables (fields)
+	
+	String productName;
+	int productId;
+	double price;
+	int quantity;
+	
+	void ProductDetails(String name, int id, double p) {
+		productName = name;
+		productId = id;
+		price = p;
+	}
+	
+	void StockDetails(int qty) {
+		quantity = qty;
+	}
+	
+	void Invoice() {
+		double total = price * quantity;
+		System.out.println("Total Invoice Amount: £" + total);
+	}
+	void displayProd() {
+		System.out.println("Product Name: " + productName);
+		System.out.println("Product ID: " + productId);
+		System.out.println("Price: £ " + price);
+		System.out.println("Quantity: " + quantity);
+	}
+}
+//----- one class describes what something is (Inventory)
+//----- the main class shows how it is used
+
+
+
+
+package Week3;
+
+public class Person {
+
+    // Fields (variables)
+    String name;
+    int age;
+
+    // Method to display person details
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+
+
+package Week3;
+
+public class Student extends Person {
+
+    // Extra field for Student
+    int studentId;
+
+    // Method to display student details
+    void displayDetails() {
+        System.out.println("Name: " + name);       // inherited
+        System.out.println("Age: " + age);         // inherited
+        System.out.println("Student ID: " + studentId);
+    }
+}
+ /*extends means inherit
+Student gets name and age from Person
+Student adds studentId
+This is method overriding */
