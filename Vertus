@@ -1,0 +1,197 @@
+private String make;
+    private String model;
+    private int year;
+    
+    public Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+    
+    public void displayInfo() {
+        System.out.println("Car Details:");
+        System.out.println("Make: " + make);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("-------------------");
+    }
+}
+// Task 2: Inventory System
+class Inventory {
+    private String productName;
+    private double price;
+    private int quantity;
+    private String productId;
+    
+    // Constructor
+    public Inventory(String productId, String productName, double price, int quantity) {
+        this.productId = productId;
+        this.productName = productName;
+        this.price = price;
+        this.quantity = quantity;
+    }
+    
+    public void ProductDetails() {
+        System.out.println("\nProduct Registration Complete!");
+        System.out.println("Product ID: " + productId);
+        System.out.println("Product Name: " + productName);
+        System.out.println("Price: $" + price);
+    }
+    
+    public void Invoice() {
+        System.out.println("\nInvoice Generated:");
+        System.out.println("Product: " + productName);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Total Amount: $" + (price * quantity));
+    }
+    
+    public void StockDetails() {
+        System.out.println("\nStock Details:");
+        System.out.println("Product ID: " + productId);
+        System.out.println("Product Name: " + productName);
+        System.out.println("Available Quantity: " + quantity);
+        System.out.println("Stock Value: $" + (price * quantity));
+    }
+    
+    public void displayProd() {
+        System.out.println("\nDisplaying Product Details:");
+        System.out.println("===========================");
+        ProductDetails();
+        StockDetails();
+    }
+}
+// Task 3: Calculator with overloaded methods
+class Calculator {
+    
+    // Method for two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+    
+    // Method for three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+    
+    // Method for two doubles
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+
+// Task 4: Person and Student classes
+class Person {
+    protected String name;
+    protected int age;
+    
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    public void displayDetails() {
+        System.out.println("Person Details:");
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+class Student extends Person {
+    private String studentId;
+    
+    public Student(String name, int age, String studentId) {
+        super(name, age);
+        this.studentId = studentId;
+    }
+    
+    @Override
+    public void displayDetails() {
+        System.out.println("\nStudent Details:");
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Student ID: " + studentId);
+    }
+}
+// Task 5: Animal hierarchy with method overriding
+class Animal {
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog says: Woof! Woof!");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat says: Meow! Meow!");
+    }
+}
+// Main class to demonstrate all tasks
+public class MainProgram {
+    
+    // Task 6: Division with exception handling
+    public static double divideNumbers(int numerator, int denominator) {
+        try {
+            if (denominator == 0) {
+                throw new ArithmeticException("Division by zero is not allowed!");
+            }
+            return (double) numerator / denominator;
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException caught: " + e.getMessage());
+            return Double.NaN; // Return Not-a-Number to indicate error
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("========== TASK 1: Car Class ==========\n");
+        Car myCar = new Car("Toyota", "Camry", 2023);
+        myCar.displayInfo();
+        
+        System.out.println("========== TASK 2: Inventory System ==========\n");
+        Inventory laptop = new Inventory("P001", "Laptop", 899.99, 50);
+        laptop.ProductDetails();
+        laptop.Invoice();
+        laptop.StockDetails();
+        laptop.displayProd();
+        
+        System.out.println("\n========== TASK 3: Calculator with Overloading ==========\n");
+        Calculator calc = new Calculator();
+        System.out.println("Adding two integers: 5 + 3 = " + calc.add(5, 3));
+        System.out.println("Adding three integers: 5 + 3 + 2 = " + calc.add(5, 3, 2));
+        System.out.println("Adding two doubles: 5.5 + 3.2 = " + calc.add(5.5, 3.2));
+        
+        System.out.println("\n========== TASK 4: Person and Student Inheritance ==========\n");
+        Person person = new Person("John Doe", 30);
+        person.displayDetails();
+        
+        Student student = new Student("Alice Smith", 20, "S12345");
+        student.displayDetails();
+        
+        System.out.println("\n========== TASK 5: Animal Polymorphism ==========\n");
+        Animal genericAnimal = new Animal();
+        Animal myDog = new Dog();
+        Animal myCat = new Cat();
+        
+        genericAnimal.makeSound();
+        myDog.makeSound();
+        myCat.makeSound();
+        
+        System.out.println("\n========== TASK 6: Division with Exception Handling ==========\n");
+        // Test case 1: Normal division
+        System.out.println("10 ÷ 2 = " + divideNumbers(10, 2));
+        
+        // Test case 2: Division by zero
+        System.out.println("10 ÷ 0 = " + divideNumbers(10, 0));
+        
+        // Test case 3: Another normal division
+        System.out.println("15 ÷ 3 = " + divideNumbers(15, 3));
+        
+        System.out.println("\n========== ALL TASKS COMPLETED SUCCESSFULLY ==========");
+    }
+}
