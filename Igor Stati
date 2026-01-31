@@ -1,0 +1,206 @@
+//Task 1
+public class Car {
+    String make;
+    String model;
+    int year;
+
+    // Constructor
+    public Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    // Method to display car info
+    public void displayInfo() {
+        System.out.println("Make: " + make);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+    }
+}
+//Task 2
+import java.util.Scanner;
+
+class Inventory {
+
+    int productId;
+    String productName;
+    double price;
+    int quantity;
+    double totalAmount;
+
+    // Method to get product details
+    void ProductDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Product ID: ");
+        productId = sc.nextInt();
+
+        System.out.print("Enter Product Name: ");
+        productName = sc.next();
+
+        System.out.print("Enter Product Price: ");
+        price = sc.nextDouble();
+    }
+
+    // Method to get stock details
+    void StockDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Quantity in Stock: ");
+        quantity = sc.nextInt();
+    }
+
+    // Method to generate invoice
+    void Invoice() {
+        totalAmount = price * quantity;
+    }
+
+    // Method to display product details
+    void displayProd() {
+        System.out.println("\n----- PRODUCT DETAILS -----");
+        System.out.println("Product ID     : " + productId);
+        System.out.println("Product Name   : " + productName);
+        System.out.println("Price          : " + price);
+        System.out.println("Quantity       : " + quantity);
+        System.out.println("Total Amount   : " + totalAmount);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Inventory inv = new Inventory();
+
+        inv.ProductDetails();
+        inv.StockDetails();
+        inv.Invoice();
+        inv.displayProd();
+    }
+}
+//Task 3
+class Calculator {
+
+    // Add two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Add three integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Add two doubles
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    // Optional: main method to test
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        System.out.println(calc.add(2, 3));          // 5
+        System.out.println(calc.add(1, 2, 3));       // 6
+        System.out.println(calc.add(2.5, 3.5));      // 6.0
+    }
+}
+//Task 4
+// Base class
+class Person {
+    String name;
+    int age;
+
+    // Constructor
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to display details
+    void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Subclass
+class Student extends Person {
+    String studentId;
+
+    // Constructor
+    Student(String name, int age, String studentId) {
+        super(name, age); // Call base class constructor
+        this.studentId = studentId;
+    }
+
+    // Overridden method
+    @Override
+    void displayDetails() {
+        super.displayDetails(); // Call Person's method
+        System.out.println("Student ID: " + studentId);
+    }
+
+    // Test the classes
+    public static void main(String[] args) {
+        Student s = new Student("Alice", 20, "S12345");
+        s.displayDetails();
+    }
+}
+//Task 5
+// Base class
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Subclass Dog
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+// Subclass Cat
+class Cat extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+
+// Test class
+public class Main {
+    public static void main(String[] args) {
+        Animal a1 = new Dog();
+        Animal a2 = new Cat();
+
+        a1.makeSound(); // Dog barks
+        a2.makeSound(); // Cat meows
+    }
+}
+//Task 6
+import java.util.Scanner;
+
+public class DivideNumbers {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter numerator: ");
+        int numerator = sc.nextInt();
+
+        System.out.print("Enter denominator: ");
+        int denominator = sc.nextInt();
+
+        try {
+            int result = numerator / denominator;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero.");
+        }
+
+        sc.close();
+    }
+}
+
+
