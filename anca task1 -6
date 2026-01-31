@@ -1,0 +1,254 @@
+
+TASK1
+
+package week3;
+
+public class Task1Car {
+	
+	    String make;
+	    String model;
+	    int year;
+
+	    // Constructor
+	    Task1Car(String make, String model, int year) {
+	        this.make = make;
+	        this.model = model;
+	        this.year = year;
+	    }
+
+	    // Method to display car details
+	    void displayInfo() {
+	        System.out.println("Car Make: " + make);
+	        System.out.println("Car Model: " + model);
+	        System.out.println("Year: " + year);
+	    }
+
+	    // Main method to test
+	    public static void main(String[] args) {
+	    	Task1Car car1 =new  Task1Car("Toyota", "Corolla", 2022);
+	        car1.displayInfo();
+	    }
+	}
+package week3;
+
+
+TASK2
+
+public class Task2Inventory {
+	
+	    String productName;
+	    int productId;
+	    double price;
+	    int quantity;
+
+	    // Constructor
+	    Task2Inventory (String productName, int productId, double price, int quantity) {
+	        this.productName = productName;
+	        this.productId = productId;
+	        this.price = price;
+	        this.quantity = quantity;
+	    }
+
+	    void ProductDetails() {
+	        System.out.println("Product Name: " + productName);
+	        System.out.println("Product ID: " + productId);
+	    }
+
+	    void Invoice() {
+	        double total = price * quantity;
+	        System.out.println("Price per unit: " + price);
+	        System.out.println("Quantity: " + quantity);
+	        System.out.println("Total Bill: " + total);
+	    }
+
+	    void StockDetails() {
+	        System.out.println("Stock Available: " + quantity);
+	    }
+
+	    void displayProd() {
+	        System.out.println("---- Product Details ----");
+	        ProductDetails();
+	        Invoice();
+	        StockDetails();
+	    }
+
+	    // Main method to test
+	    public static void main(String[] args) {
+	    	Task2Inventory item = new Task2Inventory("Laptop", 101, 750.50, 5);
+	        item.displayProd();
+	    }
+	}
+
+
+
+TASK3
+
+package week3;
+
+public class Task3Calculator {
+	
+	    int add(int a, int b) {
+	        return a + b;
+	    }
+
+	    int add(int a, int b, int c) {
+	        return a + b + c;
+	    }
+
+	    double add(double a, double b) {
+	        return a + b;
+	    }
+
+	    // Main method to test
+	    public static void main(String[] args) {
+	    	 Task3Calculator calc = new  Task3Calculator();
+
+	        System.out.println("Add two ints: " + calc.add(10, 20));
+	        System.out.println("Add three ints: " + calc.add(5, 10, 15));
+	        System.out.println("Add two doubles: " + calc.add(2.5, 3.5));
+	    }
+	}
+
+
+TASK4 
+
+package week3;
+
+public class Task4PERSON {
+
+
+
+		    // Base class
+		    static class Person {
+		        protected String name;
+		        protected int age;
+
+		        public Person(String name, int age) {
+		            this.name = name;
+		            this.age = age;
+		        }
+
+		        public void displayDetails() {
+		            System.out.println("Person Details:");
+		            System.out.println("Name: " + name);
+		            System.out.println("Age : " + age);
+		        }
+		    }
+
+		    // Subclass
+		    static class Student extends Person {
+		        private String studentId;
+
+		        public Student(String name, int age, String studentId) {
+		            super(name, age);
+		            this.studentId = studentId;
+		        }
+
+		        @Override
+		        public void displayDetails() {
+		            System.out.println("Student Details:");
+		            System.out.println("Name     : " + name);
+		            System.out.println("Age      : " + age);
+		            System.out.println("Student ID: " + studentId);
+		        }
+		    }
+
+		    // Main method
+		    public static void main(String[] args) {
+		        Person person = new Person("Amina", 20);
+		        Student student = new Student("Amina", 20, "SIT12345");
+
+		        person.displayDetails();
+		        System.out.println();
+		        student.displayDetails();
+		    }
+		
+
+	}
+
+
+TASK5
+
+
+package week3;
+
+public class Task5Animal {
+
+	
+
+		    // Base class
+		    static class Animal {
+		        public void makeSound() {
+		            System.out.println("Some generic animal sound...");
+		        }
+		    }
+
+		    // Subclass 1
+		    static class Dog extends Animal {
+		        @Override
+		        public void makeSound() {
+		            System.out.println("Woof! Woof!");
+		        }
+		    }
+
+		    // Subclass 2
+		    static class Cat extends Animal {
+		        @Override
+		        public void makeSound() {
+		            System.out.println("Meow!");
+		        }
+		    }
+
+		    // Main method to test
+		    public static void main(String[] args) {
+		        Animal a1 = new Dog();
+		        Animal a2 = new Cat();
+
+		        a1.makeSound();
+		        a2.makeSound();
+		    }
+		
+	}
+
+
+
+TASK6
+
+package week3;
+
+import java.util.Scanner;
+
+public class Task6 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter numerator: ");
+        int numerator = scanner.nextInt();
+
+        System.out.print("Enter denominator: ");
+        int denominator = scanner.nextInt();
+
+        try {
+            int result = numerator / denominator;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero.");
+        } finally {
+            scanner.close();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
