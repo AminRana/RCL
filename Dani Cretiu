@@ -1,0 +1,37 @@
+class Inventory {
+    String productName;
+    int productId;
+    double price;
+    int stock;
+
+    void ProductDetails() {
+        productName = "Laptop";
+        productId = 101;
+        price = 75000.00;
+    }
+
+    void StockDetails() {
+        stock = 15;
+    }
+
+    void Invoice() {
+        System.out.println("Invoice Amount: " + price);
+    }
+
+    void displayProd() {
+        System.out.println("Product Name: " + productName);
+        System.out.println("Product ID: " + productId);
+        System.out.println("Price: " + price);
+        System.out.println("Stock Available: " + stock);
+    }
+
+    public static void main(String[] args) {
+        Inventory inv = new Inventory();
+
+        inv.ProductDetails();
+        inv.StockDetails();
+        inv.Invoice();
+        inv.displayProd();
+    }
+}
+
